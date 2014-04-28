@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "IIViewDeckController.h"
+#import "MainViewController.h"
+#import "LeftViewController.h"
 
 @implementation AppDelegate
 
@@ -15,10 +18,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    MainViewController *mainController = [[MainViewController alloc] init];
+    LeftViewController *leftController = [[LeftViewController alloc] init];
     
+    IIViewDeckController *deckController = [[IIViewDeckController alloc] initWithCenterViewController:mainController leftViewController:leftController];
+    [self.window setRootViewController:deckController];
     
-    
-    
+    deckController.leftSize = 280;
     
     
     
