@@ -19,6 +19,7 @@
 		97156191190D08A60088042F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97156179190D08A60088042F /* UIKit.framework */; };
 		97156199190D08A60088042F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97156197190D08A60088042F /* InfoPlist.strings */; };
 		9715619B190D08A60088042F /* TimeToReadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9715619A190D08A60088042F /* TimeToReadTests.m */; };
+		97D03D31190E2F7B00EE667B /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D03D30190E2F7B00EE667B /* LeftViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		97156196190D08A60088042F /* TimeToReadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TimeToReadTests-Info.plist"; sourceTree = "<group>"; };
 		97156198190D08A60088042F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9715619A190D08A60088042F /* TimeToReadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeToReadTests.m; sourceTree = "<group>"; };
+		97D03D2F190E2F7B00EE667B /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftViewController.h; path = ../LeftViewController.h; sourceTree = "<group>"; };
+		97D03D30190E2F7B00EE667B /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftViewController.m; path = ../LeftViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 			children = (
 				97156184190D08A60088042F /* AppDelegate.h */,
 				97156185190D08A60088042F /* AppDelegate.m */,
+				97D03D32190E2F8500EE667B /* LeftViewController */,
 				97156187190D08A60088042F /* Images.xcassets */,
 				9715617C190D08A60088042F /* Supporting Files */,
 			);
@@ -142,6 +146,15 @@
 				97156197190D08A60088042F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		97D03D32190E2F8500EE667B /* LeftViewController */ = {
+			isa = PBXGroup;
+			children = (
+				97D03D2F190E2F7B00EE667B /* LeftViewController.h */,
+				97D03D30190E2F7B00EE667B /* LeftViewController.m */,
+			);
+			name = LeftViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D03D31190E2F7B00EE667B /* LeftViewController.m in Sources */,
 				97156186190D08A60088042F /* AppDelegate.m in Sources */,
 				97156182190D08A60088042F /* main.m in Sources */,
 			);
@@ -441,6 +455,7 @@
 				971561A0190D08A70088042F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		971561A1190D08A70088042F /* Build configuration list for PBXNativeTarget "TimeToReadTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +464,7 @@
 				971561A3190D08A70088042F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
