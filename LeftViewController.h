@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LeftViewController : UIViewController
+@interface LeftViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

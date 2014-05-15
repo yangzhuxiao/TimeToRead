@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "IIViewDeckController.h"
-#import "MainViewController.h"
 #import "LeftViewController.h"
+#import "RESideMenu.h"
+#import "IngViewController.h"
+
 
 @implementation AppDelegate
 
@@ -18,16 +19,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    MainViewController *mainController = [[MainViewController alloc] init];
-    LeftViewController *leftController = [[LeftViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[IngViewController alloc] init]];
     
-    IIViewDeckController *deckController = [[IIViewDeckController alloc] initWithCenterViewController:mainController leftViewController:leftController];
-    [self.window setRootViewController:deckController];
+    LeftViewController *leftViewController = [[LeftViewController alloc] init];
     
-    deckController.leftSize = 280;
+    RESideMenu *sideMenuController = [[RESideMenu alloc] initWithContentViewController:navController
+                                                                leftMenuViewController:leftViewController rightMenuViewController:nil];
     
-    
-    
+    sideMenuController.view.backgroundColor = [UIColor clearColor];
+    [self.window setRootViewController:sideMenuController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
