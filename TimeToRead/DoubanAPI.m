@@ -10,7 +10,7 @@
 
 @implementation DoubanAPI
 
-+ (void)searchBook:(NSString *)searchString WithResults:(void (^)(NSDictionary *))resultsBlock
++ (void)searchBook:(NSString *)searchString WithResults:(void (^)(NSArray * resultsArray))resultsBlock
 {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[DoubanAPI class]];
 //    [mapping addAttributeMappingsFromArray:@[@"count", @"books.origin_title", @"books.image"]];
@@ -26,8 +26,9 @@
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         NSLog(@"mappingResult.array.count: %d", mappingResult.array.count);
-        resultsBlock(mappingResult.dictionary);
-        NSLog(@"mappingResult.count: %d", mappingResult.count);
+        NSLog(@"count: %@", [mappingResult.array[0] valueForKey:@"countOfBooks"]);
+        NSLog(@"bookTitle: %@", [mappingResult.array[0] valueForKey:@"bookTitle"]);
+        resultsBlock(mappingResult.array);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Shit, Searching failed...");
     }];

@@ -55,7 +55,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    NSString *searchAPI = @"https://api.douban.com/v2/book/search?q=happ";
+    NSString *searchAPI = @"https://api.douban.com/v2/book/search?q=lov";
     searchString = [searchAPI stringByAppendingString:searchString];
     
     [self sendRequest:searchString];
@@ -66,7 +66,8 @@
 
 - (void)sendRequest:(NSString *)searchString
 {
-    [DoubanAPI searchBook:searchString WithResults:^(NSDictionary *resultsDictionary) {
+    [DoubanAPI searchBook:searchString WithResults:^(NSArray *resultsArray) {
+//        NSLog(@"resultsArray: %@", [resultsArray valueForKey:@"count"]);
 //        for (NSObject *i in resultsArray)
 //        {
 //            NSString *bookTitle = [resultsArray valueForKey:@"books.title"];

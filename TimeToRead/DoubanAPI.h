@@ -11,7 +11,7 @@
 
 @interface DoubanAPI : NSObject
 
-+ (void)searchBook:(NSString *)searchString WithResults:(void (^)(NSDictionary *resultsDictionary))resultsBlock;
++ (void)searchBook:(NSString *)searchString WithResults:(void (^)(NSArray * resultsArray))resultsBlock;
 
 
 @property (nonatomic, copy) NSNumber *countOfBooks;
