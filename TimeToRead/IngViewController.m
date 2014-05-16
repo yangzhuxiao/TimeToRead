@@ -102,6 +102,7 @@
 - (void)addByDoubanAPI
 {
     _searchViewController = [[SearchViewController alloc] init];
+//    _searchViewController.ingViewController = self;
     [self.navigationController pushViewController:_searchViewController animated:YES];
 }
 

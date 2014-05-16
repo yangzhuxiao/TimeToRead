@@ -21,14 +21,16 @@
 
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
     
-    NSURL *url = [NSURL URLWithString:searchString];
+    NSString *urlString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         NSLog(@"mappingResult.array.count: %d", mappingResult.array.count);
         NSLog(@"count: %@", [mappingResult.array[0] valueForKey:@"countOfBooks"]);
         NSLog(@"bookTitle: %@", [mappingResult.array[0] valueForKey:@"bookTitle"]);
-        resultsBlock(mappingResult.array);
+        NSLog(@"bookImage: %@", [mappingResult.array[0] valueForKey:@"bookImage"]);
+        resultsBlock([mappingResult.array[0] valueForKey:@"bookTitle"]);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Shit, Searching failed...");
     }];

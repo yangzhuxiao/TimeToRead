@@ -14,12 +14,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(popViewController)];
+//    CGFloat yPosition = self.searchDisplayController.searchBar.frame.origin.y + self.searchDisplayController.searchBar.frame.size.height;
+//    CGFloat width = self.view.frame.size.width;
+//    CGFloat height = self.view.frame.size.height - yPosition;
+//    [self.searchDisplayController.searchResultsTableView setFrame:CGRectMake(0,
+//                                                                             yPosition,
+//                                                                             width/2.0,
+//                                                                             height)];
 }
 
 #pragma mark - UITableViewDataSource Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    CGFloat yPosition = self.searchDisplayController.searchBar.frame.size.height;//此处不加self.searchDisplayController.searchBar.frame.origin.y的原因是tableView第一行上面已经预留了navigationItem高度大小的空间！！！
+    CGFloat width = self.view.frame.size.width;
+    CGFloat height = self.view.frame.size.height - yPosition;
+    
+    [tableView setFrame:CGRectMake(0,
+                                   yPosition,
+                                   width,
+                                   height)];
     if (_searchResults)
     {
         return [_searchResults count];
@@ -55,24 +71,26 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    NSString *searchAPI = @"https://api.douban.com/v2/book/search?q=lov";
-    searchString = [searchAPI stringByAppendingString:searchString];
+    NSString *searchAPI = @"https://api.douban.com/v2/book/search?q=我们";
+//    searchString = [searchAPI stringByAppendingString:searchString];
     
-    [self sendRequest:searchString];
+    [self sendRequest:searchAPI];
     
-    return NO;
+    return YES;
 }
 
 
 - (void)sendRequest:(NSString *)searchString
 {
     [DoubanAPI searchBook:searchString WithResults:^(NSArray *resultsArray) {
-//        NSLog(@"resultsArray: %@", [resultsArray valueForKey:@"count"]);
-//        for (NSObject *i in resultsArray)
-//        {
-//            NSString *bookTitle = [resultsArray valueForKey:@"books.title"];
-//            [_searchResults addObject:bookTitle];
-//        }
+        _searchResults = resultsArray;
+        [self.searchDisplayController.searchResultsTableView reloadData];
     }];
 }
+
+- (void)popViewController
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end
