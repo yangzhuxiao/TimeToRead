@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 @class DoubanAPI;
-@class IngViewController;
 
-@interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate>
+@interface SearchViewController : UITableViewController
 
 @property (nonatomic, copy) NSArray *searchResults;
 @end

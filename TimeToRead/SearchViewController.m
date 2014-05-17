@@ -15,27 +15,12 @@
 {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(popViewController)];
-//    CGFloat yPosition = self.searchDisplayController.searchBar.frame.origin.y + self.searchDisplayController.searchBar.frame.size.height;
-//    CGFloat width = self.view.frame.size.width;
-//    CGFloat height = self.view.frame.size.height - yPosition;
-//    [self.searchDisplayController.searchResultsTableView setFrame:CGRectMake(0,
-//                                                                             yPosition,
-//                                                                             width/2.0,
-//                                                                             height)];
 }
 
 #pragma mark - UITableViewDataSource Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    CGFloat yPosition = self.searchDisplayController.searchBar.frame.size.height;//此处不加self.searchDisplayController.searchBar.frame.origin.y的原因是tableView第一行上面已经预留了navigationItem高度大小的空间！！！
-    CGFloat width = self.view.frame.size.width;
-    CGFloat height = self.view.frame.size.height - yPosition;
-    
-    [tableView setFrame:CGRectMake(0,
-                                   yPosition,
-                                   width,
-                                   height)];
     if (_searchResults)
     {
         return [_searchResults count];
@@ -66,6 +51,10 @@
 
 #pragma mark - UITableViewDelegate Methods
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 #pragma mark - UISearchDisplayController Delegate Methods
 
@@ -75,10 +64,13 @@
 //    searchString = [searchAPI stringByAppendingString:searchString];
     
     [self sendRequest:searchAPI];
-    
     return YES;
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    NSLog(@"Cancel button clicked...");
+}
 
 - (void)sendRequest:(NSString *)searchString
 {
