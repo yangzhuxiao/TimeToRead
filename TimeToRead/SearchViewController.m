@@ -23,14 +23,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     tableView.rowHeight = 88;
-    if (_titlesArray)
-    {
-        return [_titlesArray count];
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [tableView setSeparatorInset:UIEdgeInsetsZero];//用于延长左边分割线
     }
-    else
-    {
-        return 0;
-    }
+    return [_titlesArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -50,16 +46,16 @@
     }
     cell.title.text = [_titlesArray objectAtIndex:indexPath.row];
     NSString *authorPref = @"作者：";
-    NSString *firstAuthor;
+    NSString *firstAuthor = @"";
     if ([[_authorsArray objectAtIndex:indexPath.row] count] > 0)//some may miss the authors
     {
         firstAuthor = [[_authorsArray objectAtIndex:indexPath.row] objectAtIndex:0];
     }
-    else
-    {
-        firstAuthor = @"";
-    }
-    cell.author.text = [authorPref stringByAppendingString:firstAuthor];//注意_authorsArray每一个元素仍是一个数值，里面可能包括多个作者的字符串！
+    
+    cell.author.text = [authorPref stringByAppendingString:firstAuthor];
+    NSString *imagePath = [_imageArray objectAtIndex:indexPath.row];
+    NSURL *imageURL = [NSURL URLWithString:imagePath];
+    [cell.imageView setImageWithURL:imageURL placeholderImage:nil];
     
     cell.backgroundColor = [UIColor clearColor];
     
