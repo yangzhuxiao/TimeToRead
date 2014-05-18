@@ -13,8 +13,8 @@
 + (void)searchBook:(NSString *)searchString WithResults:(void (^)(NSArray * resultsArray))resultsBlock
 {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[DoubanAPI class]];
-//    [mapping addAttributeMappingsFromArray:@[@"count", @"books.origin_title", @"books.image"]];
-    [mapping addAttributeMappingsFromDictionary:@{@"count": @"countOfBooks",
+
+    [mapping addAttributeMappingsFromDictionary:@{@"books.author": @"bookAuthor",
                                                   @"books.title": @"bookTitle",
                                                   @"books.image": @"bookImage"
                                                   }];
@@ -27,10 +27,10 @@
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         NSLog(@"mappingResult.array.count: %d", mappingResult.array.count);
-        NSLog(@"count: %@", [mappingResult.array[0] valueForKey:@"countOfBooks"]);
+        NSLog(@"bookAuthor: %@", [mappingResult.array[0] valueForKey:@"bookAuthor"]);
         NSLog(@"bookTitle: %@", [mappingResult.array[0] valueForKey:@"bookTitle"]);
         NSLog(@"bookImage: %@", [mappingResult.array[0] valueForKey:@"bookImage"]);
-        resultsBlock([mappingResult.array[0] valueForKey:@"bookTitle"]);
+        resultsBlock(mappingResult.array[0]);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Shit, Searching failed...");
     }];

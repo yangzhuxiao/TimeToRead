@@ -23,9 +23,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     tableView.rowHeight = 88;
-    if (_searchResults)
+    if (_titlesArray)
     {
-        return [_searchResults count];
+        return [_titlesArray count];
     }
     else
     {
@@ -48,11 +48,10 @@
             }
         }
     }
-    if (_searchResults)
-    {
-        cell.title.text = [_searchResults objectAtIndex:indexPath.row];
-        cell.author.text = @"test";
-    }
+    cell.title.text = [_titlesArray objectAtIndex:indexPath.row];
+    NSString *authorPref = @"作者：";
+    NSString *firstAuthor = [_authorsArray objectAtIndex:indexPath.row][0];
+    cell.author.text = [authorPref stringByAppendingString:firstAuthor];//注意_authorsArray每一个元素仍是一个数值，里面可能包括多个作者的字符串！
     cell.backgroundColor = [UIColor clearColor];
     
     [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
@@ -86,7 +85,10 @@
 - (void)sendRequest:(NSString *)searchString
 {
     [DoubanAPI searchBook:searchString WithResults:^(NSArray *resultsArray) {
-        _searchResults = resultsArray;
+        _titlesArray = [resultsArray valueForKey:@"bookTitle"];
+        _authorsArray = [resultsArray valueForKey:@"bookAuthor"];
+        _imageArray = [resultsArray valueForKey:@"bookImage"];
+        NSLog(@"authorArray: %@", _authorsArray);
         [self.searchDisplayController.searchResultsTableView reloadData];
     }];
 }
