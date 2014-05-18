@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "DoubanAPI.h"
+#import "SearchTableViewCell.h"
 
 @implementation SearchViewController
 
@@ -21,6 +22,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    tableView.rowHeight = 88;
     if (_searchResults)
     {
         return [_searchResults count];
@@ -33,14 +35,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
     if (!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+        NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"SearchTableViewCell" owner:nil options:nil];
+        
+        for (id item in nibArray)
+        {
+            if ([item isKindOfClass:[SearchTableViewCell class]])
+            {
+                cell = (SearchTableViewCell *)item;
+            }
+        }
     }
     if (_searchResults)
     {
-        cell.textLabel.text = [_searchResults objectAtIndex:indexPath.row];
+        cell.title.text = [_searchResults objectAtIndex:indexPath.row];
+        cell.author.text = @"test";
     }
     cell.backgroundColor = [UIColor clearColor];
     

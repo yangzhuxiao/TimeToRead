@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		284F75ADA3414EF3A5AFB489 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D071B86B3064C4291463280 /* libPods.a */; };
+		970996D01928506D00761C93 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970996CF1928506D00761C93 /* SearchTableViewCell.xib */; };
+		970996D319286C9300761C93 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 970996D219286C9300761C93 /* SearchTableViewCell.m */; };
 		97156176190D08A60088042F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97156175190D08A60088042F /* Foundation.framework */; };
 		97156178190D08A60088042F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97156177190D08A60088042F /* CoreGraphics.framework */; };
 		9715617A190D08A60088042F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97156179190D08A60088042F /* UIKit.framework */; };
@@ -51,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		94991C67CCAE4FDF8ACC89EC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		970996CF1928506D00761C93 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		970996D119286C9300761C93 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		970996D219286C9300761C93 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		97156172190D08A60088042F /* TimeToRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeToRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97156175190D08A60088042F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		97156177190D08A60088042F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -252,6 +257,9 @@
 				97184F1D191A368300C3ED33 /* SearchViewController.h */,
 				97184F1E191A368300C3ED33 /* SearchViewController.m */,
 				97184F20191A369600C3ED33 /* SearchViewController.xib */,
+				970996D119286C9300761C93 /* SearchTableViewCell.h */,
+				970996D219286C9300761C93 /* SearchTableViewCell.m */,
+				970996CF1928506D00761C93 /* SearchTableViewCell.xib */,
 				97D0EBF4191F462B00A7BEE7 /* ScanViewController.h */,
 				97D0EBF5191F462B00A7BEE7 /* ScanViewController.m */,
 				97D0EBF7191F464B00A7BEE7 /* ScanViewController.xib */,
@@ -386,6 +394,7 @@
 				97184F21191A369600C3ED33 /* SearchViewController.xib in Resources */,
 				97D0EBF8191F464B00A7BEE7 /* ScanViewController.xib in Resources */,
 				973F5668191889260045D076 /* IngViewController.xib in Resources */,
+				970996D01928506D00761C93 /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +449,7 @@
 				97D03D31190E2F7B00EE667B /* LeftViewController.m in Sources */,
 				97D0EBF6191F462B00A7BEE7 /* ScanViewController.m in Sources */,
 				973D6CA0190F77B100F746B8 /* WillViewController.m in Sources */,
+				970996D319286C9300761C93 /* SearchTableViewCell.m in Sources */,
 				97156186190D08A60088042F /* AppDelegate.m in Sources */,
 				973D6CAC190F783D00F746B8 /* Group.m in Sources */,
 				97156182190D08A60088042F /* main.m in Sources */,
