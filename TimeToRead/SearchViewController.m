@@ -50,8 +50,17 @@
     }
     cell.title.text = [_titlesArray objectAtIndex:indexPath.row];
     NSString *authorPref = @"作者：";
-    NSString *firstAuthor = [_authorsArray objectAtIndex:indexPath.row][0];
+    NSString *firstAuthor;
+    if ([[_authorsArray objectAtIndex:indexPath.row] count] > 0)//some may miss the authors
+    {
+        firstAuthor = [[_authorsArray objectAtIndex:indexPath.row] objectAtIndex:0];
+    }
+    else
+    {
+        firstAuthor = @"";
+    }
     cell.author.text = [authorPref stringByAppendingString:firstAuthor];//注意_authorsArray每一个元素仍是一个数值，里面可能包括多个作者的字符串！
+    
     cell.backgroundColor = [UIColor clearColor];
     
     [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
