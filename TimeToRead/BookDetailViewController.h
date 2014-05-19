@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UIImageView+AFNetworking.h>
 
 @interface BookDetailViewController : UIViewController
+
+@property (nonatomic, copy) NSString *titleString;
+@property (nonatomic, copy) NSString *authorString;
+@property (nonatomic, strong) NSString *imageString;
+
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 

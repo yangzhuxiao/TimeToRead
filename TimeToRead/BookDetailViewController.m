@@ -27,6 +27,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    _titleLabel.text = _titleString;
+    _authorLabel.text = _authorString;
+
+    NSURL *imageURL = [NSURL URLWithString:_imageString];
+    [_imageView setImageWithURL:imageURL placeholderImage:nil];
 }
 
 - (void)didReceiveMemoryWarning

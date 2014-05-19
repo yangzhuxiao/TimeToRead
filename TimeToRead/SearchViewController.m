@@ -113,12 +113,9 @@
 {
     _detailViewController = [[BookDetailViewController alloc] initWithNibName:@"BookDetailViewController" bundle:nil];
     
-    _detailViewController.titleLabel.text = [_titlesArray objectAtIndex:index];
-    _detailViewController.authorLabel.text = [_authorsArray objectAtIndex:index];
-    
-    NSString *imagePath = [_imageArray objectAtIndex:index];
-    NSURL *imageURL = [NSURL URLWithString:imagePath];
-    [_detailViewController.imageView setImageWithURL:imageURL placeholderImage:nil];
+    _detailViewController.titleString = [_titlesArray objectAtIndex:index];
+    _detailViewController.authorString = [_authorsArray objectAtIndex:index][0];
+    _detailViewController.imageString = [_imageArray objectAtIndex:index];
     
     [self.navigationController pushViewController:_detailViewController animated:YES];
 }
