@@ -26,10 +26,12 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+/*
         NSLog(@"mappingResult.array.count: %d", mappingResult.array.count);
         NSLog(@"bookAuthor: %@", [mappingResult.array[0] valueForKey:@"bookAuthor"]);
         NSLog(@"bookTitle: %@", [mappingResult.array[0] valueForKey:@"bookTitle"]);
         NSLog(@"bookImage: %@", [mappingResult.array[0] valueForKey:@"bookImage"]);
+ */
         resultsBlock(mappingResult.array[0]);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Shit, Searching failed...");

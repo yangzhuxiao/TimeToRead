@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 @class DoubanAPI;
+@class BookDetailViewController;
 
 @interface SearchViewController : UITableViewController
 
 @property (nonatomic, copy) NSArray *titlesArray;
 @property (nonatomic, copy) NSArray *authorsArray;
 @property (nonatomic, copy) NSArray *imageArray;
+
+@property (nonatomic, strong) BookDetailViewController *detailViewController;
+
 
 @end

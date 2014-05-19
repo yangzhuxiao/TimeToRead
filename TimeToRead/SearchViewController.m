@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "DoubanAPI.h"
 #import "SearchTableViewCell.h"
+#import "BookDetailViewController.h"
 
 @implementation SearchViewController
 
@@ -68,7 +69,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self pushViewControllerAtIndex:indexPath.row];
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"accessoryButtonTapped...");
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
@@ -93,7 +99,7 @@
         _titlesArray = [resultsArray valueForKey:@"bookTitle"];
         _authorsArray = [resultsArray valueForKey:@"bookAuthor"];
         _imageArray = [resultsArray valueForKey:@"bookImage"];
-        NSLog(@"authorArray: %@", _authorsArray);
+
         [self.searchDisplayController.searchResultsTableView reloadData];
     }];
 }
@@ -101,6 +107,20 @@
 - (void)popViewController
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)pushViewControllerAtIndex:(NSInteger)index
+{
+    _detailViewController = [[BookDetailViewController alloc] initWithNibName:@"BookDetailViewController" bundle:nil];
+    
+    _detailViewController.titleLabel.text = [_titlesArray objectAtIndex:index];
+    _detailViewController.authorLabel.text = [_authorsArray objectAtIndex:index];
+    
+    NSString *imagePath = [_imageArray objectAtIndex:index];
+    NSURL *imageURL = [NSURL URLWithString:imagePath];
+    [_detailViewController.imageView setImageWithURL:imageURL placeholderImage:nil];
+    
+    [self.navigationController pushViewController:_detailViewController animated:YES];
 }
 
 @end
