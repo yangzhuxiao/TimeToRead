@@ -35,12 +35,17 @@
 		973D6CAC190F783D00F746B8 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 973D6CAB190F783D00F746B8 /* Group.m */; };
 		973D6CB7190FA14900F746B8 /* LogOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 973D6CB6190FA14900F746B8 /* LogOut.m */; };
 		973F5668191889260045D076 /* IngViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 973F5667191889260045D076 /* IngViewController.xib */; };
+		975DD925192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 975DD923192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodeld */; };
 		979EAD2F1922601000F438E8 /* DoubanAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 979EAD2E1922601000F438E8 /* DoubanAPI.m */; };
 		97A1686A1929EA9000A79A05 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A168681929EA9000A79A05 /* BookDetailViewController.m */; };
 		97A1686B1929EA9000A79A05 /* BookDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97A168691929EA9000A79A05 /* BookDetailViewController.xib */; };
 		97D03D31190E2F7B00EE667B /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D03D30190E2F7B00EE667B /* LeftViewController.m */; };
 		97D0EBF6191F462B00A7BEE7 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D0EBF5191F462B00A7BEE7 /* ScanViewController.m */; };
 		97D0EBF8191F464B00A7BEE7 /* ScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D0EBF7191F464B00A7BEE7 /* ScanViewController.xib */; };
+		97D39B3F1933809E0013BCBA /* IngDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D39B3E1933809E0013BCBA /* IngDetailViewController.m */; };
+		97D39B41193387D50013BCBA /* IngDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D39B40193387D50013BCBA /* IngDetailViewController.xib */; };
+		97D39B4A193398420013BCBA /* EdBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D39B49193398420013BCBA /* EdBook.m */; };
+		97D39B50193398CE0013BCBA /* IngBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D39B4F193398CE0013BCBA /* IngBook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +103,7 @@
 		973D6CB5190FA14900F746B8 /* LogOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogOut.h; sourceTree = "<group>"; };
 		973D6CB6190FA14900F746B8 /* LogOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogOut.m; sourceTree = "<group>"; };
 		973F5667191889260045D076 /* IngViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IngViewController.xib; sourceTree = "<group>"; };
+		975DD924192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrentlyReadingBooks.xcdatamodel; sourceTree = "<group>"; };
 		979EAD2D1922601000F438E8 /* DoubanAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanAPI.h; sourceTree = "<group>"; };
 		979EAD2E1922601000F438E8 /* DoubanAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanAPI.m; sourceTree = "<group>"; };
 		97A168671929EA9000A79A05 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
@@ -108,6 +114,13 @@
 		97D0EBF4191F462B00A7BEE7 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		97D0EBF5191F462B00A7BEE7 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		97D0EBF7191F464B00A7BEE7 /* ScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanViewController.xib; sourceTree = "<group>"; };
+		97D39B3D1933809E0013BCBA /* IngDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngDetailViewController.h; sourceTree = "<group>"; };
+		97D39B3E1933809E0013BCBA /* IngDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngDetailViewController.m; sourceTree = "<group>"; };
+		97D39B40193387D50013BCBA /* IngDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IngDetailViewController.xib; sourceTree = "<group>"; };
+		97D39B48193398420013BCBA /* EdBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdBook.h; sourceTree = "<group>"; };
+		97D39B49193398420013BCBA /* EdBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdBook.m; sourceTree = "<group>"; };
+		97D39B4E193398CE0013BCBA /* IngBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngBook.h; sourceTree = "<group>"; };
+		97D39B4F193398CE0013BCBA /* IngBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngBook.m; sourceTree = "<group>"; };
 		9D071B86B3064C4291463280 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -185,6 +198,11 @@
 				973D6CAF190F787300F746B8 /* Reading */,
 				97D03D32190E2F8500EE667B /* LeftViewController */,
 				973D6CB8190FA15500F746B8 /* LogOut */,
+				975DD923192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodeld */,
+				97D39B4E193398CE0013BCBA /* IngBook.h */,
+				97D39B4F193398CE0013BCBA /* IngBook.m */,
+				97D39B48193398420013BCBA /* EdBook.h */,
+				97D39B49193398420013BCBA /* EdBook.m */,
 			);
 			path = TimeToRead;
 			sourceTree = "<group>";
@@ -258,6 +276,9 @@
 			children = (
 				973D6C98190F778100F746B8 /* IngViewController.h */,
 				973D6C99190F778100F746B8 /* IngViewController.m */,
+				97D39B3D1933809E0013BCBA /* IngDetailViewController.h */,
+				97D39B3E1933809E0013BCBA /* IngDetailViewController.m */,
+				97D39B40193387D50013BCBA /* IngDetailViewController.xib */,
 				973F5667191889260045D076 /* IngViewController.xib */,
 				97184F1D191A368300C3ED33 /* SearchViewController.h */,
 				97184F1E191A368300C3ED33 /* SearchViewController.m */,
@@ -401,6 +422,7 @@
 				97156188190D08A60088042F /* Images.xcassets in Resources */,
 				97184F21191A369600C3ED33 /* SearchViewController.xib in Resources */,
 				97D0EBF8191F464B00A7BEE7 /* ScanViewController.xib in Resources */,
+				97D39B41193387D50013BCBA /* IngDetailViewController.xib in Resources */,
 				97A1686B1929EA9000A79A05 /* BookDetailViewController.xib in Resources */,
 				973F5668191889260045D076 /* IngViewController.xib in Resources */,
 				970996D01928506D00761C93 /* SearchTableViewCell.xib in Resources */,
@@ -457,17 +479,21 @@
 			files = (
 				97D03D31190E2F7B00EE667B /* LeftViewController.m in Sources */,
 				97D0EBF6191F462B00A7BEE7 /* ScanViewController.m in Sources */,
+				97D39B3F1933809E0013BCBA /* IngDetailViewController.m in Sources */,
 				973D6CA0190F77B100F746B8 /* WillViewController.m in Sources */,
 				970996D319286C9300761C93 /* SearchTableViewCell.m in Sources */,
 				97156186190D08A60088042F /* AppDelegate.m in Sources */,
 				973D6CAC190F783D00F746B8 /* Group.m in Sources */,
 				97156182190D08A60088042F /* main.m in Sources */,
+				97D39B50193398CE0013BCBA /* IngBook.m in Sources */,
 				973D6CA9190F783100F746B8 /* Alert&Notification.m in Sources */,
 				97A1686A1929EA9000A79A05 /* BookDetailViewController.m in Sources */,
 				97184F1F191A368300C3ED33 /* SearchViewController.m in Sources */,
 				973D6C96190F54EF00F746B8 /* RESideMenu.m in Sources */,
+				975DD925192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodeld in Sources */,
 				979EAD2F1922601000F438E8 /* DoubanAPI.m in Sources */,
 				973D6C95190F54EF00F746B8 /* RECommonFunctions.m in Sources */,
+				97D39B4A193398420013BCBA /* EdBook.m in Sources */,
 				973D6CB7190FA14900F746B8 /* LogOut.m in Sources */,
 				973D6C9D190F778F00F746B8 /* EdViewController.m in Sources */,
 				973D6CA3190F77D900F746B8 /* SettingsViewController.m in Sources */,
@@ -687,6 +713,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		975DD923192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				975DD924192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodel */,
+			);
+			currentVersion = 975DD924192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodel */;
+			path = CurrentlyReadingBooks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9715616A190D08A60088042F /* Project object */;
 }

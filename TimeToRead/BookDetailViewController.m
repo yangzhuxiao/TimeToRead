@@ -7,6 +7,8 @@
 //
 
 #import "BookDetailViewController.h"
+#import "IngBook.h"
+#import "IngBookStore.h"
 
 @interface BookDetailViewController ()
 
@@ -28,6 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBookToReadingStore)];
+    
+    
     _titleLabel.text = _titleString;
     _authorLabel.text = _authorString;
 
@@ -41,4 +46,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)addBookToReadingStore
+{
+    [[IngBookStore sharedStore] createNewBookWithTitle:_titleString WithAuthor:_authorString];
+    
+    [[IngBookStore sharedStore] saveChanges];
+}
 @end

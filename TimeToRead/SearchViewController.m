@@ -16,7 +16,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(popViewController)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(popViewController)];
+    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItem target:self action:@selector(popViewController)];
 }
 
 #pragma mark - UITableViewDataSource Methods
@@ -63,7 +65,6 @@
     [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     return cell;
 }
-
 
 #pragma mark - UITableViewDelegate Methods
 

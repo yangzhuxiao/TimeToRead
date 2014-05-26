@@ -9,6 +9,12 @@
 #import "IngViewController.h"
 #import "UIViewController+RESideMenu.h"
 #import "SearchViewController.h"
+#import "IngBook.h"
+#import "IngBookStore.h"
+#import "IngDetailViewController.h"
+
+#define IS_IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0000 ? YES : NO)
+
 
 @implementation IngViewController
 
@@ -17,15 +23,18 @@
     self = [super init];
     if (self)
     {
-
     }
     return self;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (IS_IOS7)
+    {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
     self.view.backgroundColor = [UIColor clearColor];
 	self.title = @"在读的书";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
@@ -37,12 +46,9 @@
     NSLog(@"navigationBarFrame: %@",NSStringFromCGRect(navigationBarFrame));
     
     _dropDownArray = [NSArray arrayWithObjects:@"搜索豆瓣", @"扫描二维码",nil];
-    _dropDownTableView.delegate = self;
-    _dropDownTableView.dataSource = self;
-    _dropDownTableView.backgroundColor = [UIColor lightGrayColor];
+    
+    _dropDownTableView.backgroundColor = [UIColor yellowColor];
     _dropDownTableView.hidden = YES;
-    
-    
 }
 
 - (void)addItem
@@ -51,14 +57,14 @@
 }
 
 #pragma mark -- UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dropDownArray.count;
+    if (tableView == _dropDownTableView)
+    {
+        return [_dropDownArray count];
+    }
+    else return [[[IngBookStore sharedStore] allBooksArray] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,36 +74,75 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    cell.textLabel.text = _dropDownArray[indexPath.row];
-    cell.backgroundColor = [UIColor clearColor];
     
-    [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    if (tableView == _contentsTableView)
+    {
+        IngBook *book = [[[IngBookStore sharedStore] allBooksArray] objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = book.title;
+//        NSString *authorPref = @"作者：";
+//        NSString *firstAuthor = @"";
+//        if ([[_authorsArray objectAtIndex:indexPath.row] count] > 0)//some may miss the authors
+//        {
+//            firstAuthor = [[_authorsArray objectAtIndex:indexPath.row] objectAtIndex:0];
+//        }
+//        
+//        cell.author.text = [authorPref stringByAppendingString:firstAuthor];
+    }
+    else
+    {
+        UIFont *dropDownFont = [UIFont systemFontOfSize:10.f];
+        cell.textLabel.font = dropDownFont;
+        cell.textLabel.text = _dropDownArray[indexPath.row];
+        cell.backgroundColor = [UIColor clearColor];
+        
+        [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    }
     
     return cell;
 }
-
-
-
 #pragma mark -- UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 30.f;
+    if (tableView == _dropDownTableView)
+    {
+        return 22.f;
+    }
+    return 88.f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0)
+    if (tableView == _dropDownTableView)
     {
-        [self addByDoubanAPI];
+        if (indexPath.row == 0)
+        {
+            [self addByDoubanAPI];
+        }
+        if (indexPath.row == 1)
+        {
+            [self addByScanningQRCode];
+        }
+        _dropDownTableView.hidden = YES;
     }
-    if (indexPath.row == 1)
+    else
     {
-        [self addByScanningQRCode];
+        _dropDownTableView.hidden = YES;
+        _detailViewController = [[IngDetailViewController alloc] init];
+        [self.navigationController pushViewController:_detailViewController animated:YES];
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1.0f;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.0f;
+}
 
 - (void)addByDoubanAPI
 {

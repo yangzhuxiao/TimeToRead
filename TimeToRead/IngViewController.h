@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 @class SearchViewController;
+@class IngDetailViewController;
 
 @interface IngViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *dropDownTableView;
 
+@property (strong, nonatomic) IBOutlet UITableView *contentsTableView;
+
 @property (nonatomic, copy) NSArray *dropDownArray;
 @property (nonatomic, strong) SearchViewController *searchViewController;
+@property (nonatomic, strong) IngDetailViewController *detailViewController;
 @end
