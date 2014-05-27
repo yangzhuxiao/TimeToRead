@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface IngDetailViewController : UIViewController
+
+@property (nonatomic, copy) NSString * titleString;
+@property (nonatomic, copy) NSString * authorString;
+
 @property (strong, nonatomic) IBOutlet UILabel *Progression;
 @property (strong, nonatomic) IBOutlet UILabel *bookTitle;
 @property (strong, nonatomic) IBOutlet UILabel *bookAuthor;

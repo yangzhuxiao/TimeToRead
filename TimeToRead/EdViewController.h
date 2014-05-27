@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EdViewController : UIViewController
+@interface EdViewController : UITableViewController
 
 @end

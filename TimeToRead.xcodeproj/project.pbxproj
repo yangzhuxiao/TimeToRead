@@ -47,6 +47,8 @@
 		97D39B4A193398420013BCBA /* EdBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D39B49193398420013BCBA /* EdBook.m */; };
 		97D39B50193398CE0013BCBA /* IngBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D39B4F193398CE0013BCBA /* IngBook.m */; };
 		97F425571934993400DB7B22 /* IngBookStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F425561934993400DB7B22 /* IngBookStore.m */; };
+		97F4255A1934C83600DB7B22 /* EdBookStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F425591934C83600DB7B22 /* EdBookStore.m */; };
+		97F4255C1934CA4D00DB7B22 /* EdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97F4255B1934CA4D00DB7B22 /* EdViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,9 @@
 		97D39B4F193398CE0013BCBA /* IngBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngBook.m; sourceTree = "<group>"; };
 		97F425551934993400DB7B22 /* IngBookStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngBookStore.h; sourceTree = "<group>"; };
 		97F425561934993400DB7B22 /* IngBookStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngBookStore.m; sourceTree = "<group>"; };
+		97F425581934C83600DB7B22 /* EdBookStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdBookStore.h; sourceTree = "<group>"; };
+		97F425591934C83600DB7B22 /* EdBookStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdBookStore.m; sourceTree = "<group>"; };
+		97F4255B1934CA4D00DB7B22 /* EdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EdViewController.xib; sourceTree = "<group>"; };
 		9D071B86B3064C4291463280 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -208,6 +213,8 @@
 				97D39B49193398420013BCBA /* EdBook.m */,
 				97F425551934993400DB7B22 /* IngBookStore.h */,
 				97F425561934993400DB7B22 /* IngBookStore.m */,
+				97F425581934C83600DB7B22 /* EdBookStore.h */,
+				97F425591934C83600DB7B22 /* EdBookStore.m */,
 			);
 			path = TimeToRead;
 			sourceTree = "<group>";
@@ -281,10 +288,10 @@
 			children = (
 				973D6C98190F778100F746B8 /* IngViewController.h */,
 				973D6C99190F778100F746B8 /* IngViewController.m */,
+				973F5667191889260045D076 /* IngViewController.xib */,
 				97D39B3D1933809E0013BCBA /* IngDetailViewController.h */,
 				97D39B3E1933809E0013BCBA /* IngDetailViewController.m */,
 				97D39B40193387D50013BCBA /* IngDetailViewController.xib */,
-				973F5667191889260045D076 /* IngViewController.xib */,
 				97184F1D191A368300C3ED33 /* SearchViewController.h */,
 				97184F1E191A368300C3ED33 /* SearchViewController.m */,
 				97184F20191A369600C3ED33 /* SearchViewController.xib */,
@@ -306,6 +313,7 @@
 			children = (
 				973D6C9B190F778F00F746B8 /* EdViewController.h */,
 				973D6C9C190F778F00F746B8 /* EdViewController.m */,
+				97F4255B1934CA4D00DB7B22 /* EdViewController.xib */,
 			);
 			name = "Already Read";
 			sourceTree = "<group>";
@@ -431,6 +439,7 @@
 				97A1686B1929EA9000A79A05 /* BookDetailViewController.xib in Resources */,
 				973F5668191889260045D076 /* IngViewController.xib in Resources */,
 				970996D01928506D00761C93 /* SearchTableViewCell.xib in Resources */,
+				97F4255C1934CA4D00DB7B22 /* EdViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +508,7 @@
 				979EAD2F1922601000F438E8 /* DoubanAPI.m in Sources */,
 				973D6C95190F54EF00F746B8 /* RECommonFunctions.m in Sources */,
 				97F425571934993400DB7B22 /* IngBookStore.m in Sources */,
+				97F4255A1934C83600DB7B22 /* EdBookStore.m in Sources */,
 				97D39B4A193398420013BCBA /* EdBook.m in Sources */,
 				973D6CB7190FA14900F746B8 /* LogOut.m in Sources */,
 				973D6C9D190F778F00F746B8 /* EdViewController.m in Sources */,

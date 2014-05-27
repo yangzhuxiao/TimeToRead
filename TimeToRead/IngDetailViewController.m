@@ -7,6 +7,7 @@
 //
 
 #import "IngDetailViewController.h"
+#import "EdBookStore.h"
 
 @implementation IngDetailViewController
 
@@ -24,12 +25,18 @@
 {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加至已读" style:UIBarButtonItemStylePlain target:self action:@selector(addToAlreadyRead)];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [_bookTitle setText:_titleString];
+    _bookAuthor.text = _authorString;
 }
 
 - (void)addToAlreadyRead
 {
-    
+    [[EdBookStore sharedStore] createNewBookWithTitle:_bookTitle.text WithAuthor:_bookAuthor.text];
+    [[EdBookStore sharedStore] saveChanges];
 }
 
 @end

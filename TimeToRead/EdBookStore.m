@@ -1,19 +1,18 @@
 //
-//  IngBookStore.m
+//  EdBookStore.m
 //  TimeToRead
 //
 //  Created by Yang Xiaozhu on 14-5-27.
 //  Copyright (c) 2014年 XiaoZhuAndJiaNing. All rights reserved.
 //
 
-#import "IngBookStore.h"
-#import "IngBook.h"
+#import "EdBookStore.h"
+#import "EdBook.h"
 
-@implementation IngBookStore
-
-+ (IngBookStore *)sharedStore
+@implementation EdBookStore
++ (EdBookStore *)sharedStore
 {
-    static IngBookStore *sharedStore = nil;
+    static EdBookStore *sharedStore = nil;
     if (!sharedStore) {
         sharedStore = [[super allocWithZone:nil] init];
     }
@@ -29,7 +28,7 @@
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    return [documentDirectory stringByAppendingString:@"IngBookStore.data"];
+    return [documentDirectory stringByAppendingString:@"EdBookStore.data"];
 }
 
 - (id)init
@@ -63,7 +62,7 @@
 
 - (void)createNewBookWithTitle:(NSString *)title WithAuthor:(NSString *)author
 {
-    IngBook *newBook = [NSEntityDescription insertNewObjectForEntityForName:@"IngBook" inManagedObjectContext:context];
+    EdBook *newBook = [NSEntityDescription insertNewObjectForEntityForName:@"EdBook" inManagedObjectContext:context];
     newBook.title = title;
     newBook.author = author;
     [_allBooksArray addObject:newBook];
@@ -85,7 +84,7 @@
     if (!_allBooksArray)
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entityDiscription = [[modal entitiesByName] objectForKey:@"IngBook"];
+        NSEntityDescription *entityDiscription = [[modal entitiesByName] objectForKey:@"EdBook"];
         [request setEntity:entityDiscription];
         
         NSError *error;

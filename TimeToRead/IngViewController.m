@@ -64,7 +64,7 @@
     {
         return [_dropDownArray count];
     }
-    else return [[[IngBookStore sharedStore] allIngBooksArray] count];
+    else return [[[IngBookStore sharedStore] allBooksArray] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +77,7 @@
     
     if (tableView == _contentsTableView)
     {
-        IngBook *book = [[[IngBookStore sharedStore] allIngBooksArray] objectAtIndex:indexPath.row];
+        IngBook *book = [[[IngBookStore sharedStore] allBooksArray] objectAtIndex:indexPath.row];
         
         cell.textLabel.text = book.title;
 //        NSString *authorPref = @"作者：";
@@ -130,19 +130,14 @@
     {
         _dropDownTableView.hidden = YES;
         _detailViewController = [[IngDetailViewController alloc] init];
+        
+        IngBook *book = [[[IngBookStore sharedStore] allBooksArray] objectAtIndex:indexPath.row];
+        _detailViewController.titleString = book.title;
+        
         [self.navigationController pushViewController:_detailViewController animated:YES];
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 1.0f;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.0f;
-}
 
 - (void)addByDoubanAPI
 {

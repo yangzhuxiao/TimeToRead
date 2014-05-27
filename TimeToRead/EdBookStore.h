@@ -1,5 +1,5 @@
 //
-//  IngBookStore.h
+//  EdBookStore.h
 //  TimeToRead
 //
 //  Created by Yang Xiaozhu on 14-5-27.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface IngBookStore : NSObject
+@interface EdBookStore : NSObject
 {
     NSManagedObjectContext *context;
     NSManagedObjectModel *modal;
@@ -16,7 +16,7 @@
 @property (nonatomic, copy) NSMutableArray *allBooksArray;
 
 
-+ (IngBookStore *)sharedStore;
++ (EdBookStore *)sharedStore;
 - (NSString *)bookArchivePath;
 - (void)createNewBookWithTitle:(NSString *)title WithAuthor:(NSString *)author;
 - (BOOL)saveChanges;
