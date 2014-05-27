@@ -46,6 +46,7 @@
 		97D39B41193387D50013BCBA /* IngDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D39B40193387D50013BCBA /* IngDetailViewController.xib */; };
 		97D39B4A193398420013BCBA /* EdBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D39B49193398420013BCBA /* EdBook.m */; };
 		97D39B50193398CE0013BCBA /* IngBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D39B4F193398CE0013BCBA /* IngBook.m */; };
+		97F425571934993400DB7B22 /* IngBookStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F425561934993400DB7B22 /* IngBookStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		97D39B49193398420013BCBA /* EdBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdBook.m; sourceTree = "<group>"; };
 		97D39B4E193398CE0013BCBA /* IngBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngBook.h; sourceTree = "<group>"; };
 		97D39B4F193398CE0013BCBA /* IngBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngBook.m; sourceTree = "<group>"; };
+		97F425551934993400DB7B22 /* IngBookStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngBookStore.h; sourceTree = "<group>"; };
+		97F425561934993400DB7B22 /* IngBookStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngBookStore.m; sourceTree = "<group>"; };
 		9D071B86B3064C4291463280 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -203,6 +206,8 @@
 				97D39B4F193398CE0013BCBA /* IngBook.m */,
 				97D39B48193398420013BCBA /* EdBook.h */,
 				97D39B49193398420013BCBA /* EdBook.m */,
+				97F425551934993400DB7B22 /* IngBookStore.h */,
+				97F425561934993400DB7B22 /* IngBookStore.m */,
 			);
 			path = TimeToRead;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 				975DD925192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodeld in Sources */,
 				979EAD2F1922601000F438E8 /* DoubanAPI.m in Sources */,
 				973D6C95190F54EF00F746B8 /* RECommonFunctions.m in Sources */,
+				97F425571934993400DB7B22 /* IngBookStore.m in Sources */,
 				97D39B4A193398420013BCBA /* EdBook.m in Sources */,
 				973D6CB7190FA14900F746B8 /* LogOut.m in Sources */,
 				973D6C9D190F778F00F746B8 /* EdViewController.m in Sources */,
