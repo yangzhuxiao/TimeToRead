@@ -8,6 +8,7 @@
 
 #import "IngBookStore.h"
 #import "IngBook.h"
+#import "EdBook.h"
 
 @implementation IngBookStore
 
@@ -25,22 +26,38 @@
     return [self sharedStore];
 }
 
-- (NSString *)bookArchivePath
+- (NSString *)IngBookArchivePath
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    return [documentDirectory stringByAppendingString:@"store.data"];
+    return [documentDirectory stringByAppendingString:@"IngBookStore.data"];
 }
 
-- (id)init
+- (NSString *)EdBookArchivePath
+{
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    return [documentDirectory stringByAppendingString:@"EdBookStore.data"];
+}
+
+- (id)initWithBookType:(NSInteger)bookType
 {
     self = [super init];
     if (self) {
         // Read in CurrentlyReadingBooks.xcdatamodeld
         modal = [NSManagedObjectModel mergedModelFromBundles:nil];
         NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:modal];
+        NSString *path;
+        switch (bookType)
+        {
+            case 0:
+                path = [self IngBookArchivePath];
+            case 1:
+                path = [self EdBookArchivePath];
+            default:
+                break;
+        }
         
-        NSString *path = [self bookArchivePath];
         NSURL *storeURL = [NSURL fileURLWithPath:path];
         
         NSError *error = nil;
@@ -56,19 +73,34 @@
         context = [[NSManagedObjectContext alloc] init];
         [context setPersistentStoreCoordinator:psc];
         [context setUndoManager:nil];
-        [self loadAllBooks];
+        switch (bookType)
+        {
+            case 0:
+                [self loadAllIngBooks];
+            case 1:
+                [self loadAllEdBooks];
+            default:
+                break;
+        }
     }
     return self;
 }
 
-- (void)createNewBookWithTitle:(NSString *)title WithAuthor:(NSString *)author
+- (void)createIngBookWithTitle:(NSString *)title WithAuthor:(NSString *)author
 {
     IngBook *newBook = [NSEntityDescription insertNewObjectForEntityForName:@"IngBook" inManagedObjectContext:context];
     newBook.title = title;
     newBook.author = author;
-    [_allBooksArray addObject:newBook];
+    [_allIngBooksArray addObject:newBook];
 }
 
+- (void)createEdBookWithTitle:(NSString *)title WithAuthor:(NSString *)author
+{
+    EdBook *newBook = [NSEntityDescription insertNewObjectForEntityForName:@"EdBook" inManagedObjectContext:context];
+    newBook.title = title;
+    newBook.author = author;
+    [_allEdBooksArray addObject:newBook];
+}
 
 - (BOOL)saveChanges
 {
@@ -80,9 +112,9 @@
     return success;
 }
 
-- (void)loadAllBooks
+- (void)loadAllIngBooks
 {
-    if (!_allBooksArray)
+    if (!_allIngBooksArray)
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         NSEntityDescription *entityDiscription = [[modal entitiesByName] objectForKey:@"IngBook"];
@@ -94,7 +126,25 @@
         {
             [NSException raise:@"Fetch failed..." format:@"Reason: %@", [error localizedDescription]];
         }
-        _allBooksArray = [[NSMutableArray alloc] initWithArray:resultArray];
+        _allIngBooksArray = [[NSMutableArray alloc] initWithArray:resultArray];
+    }
+}
+
+- (void)loadAllEdBooks
+{
+    if (!_allIngBooksArray)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entityDiscription = [[modal entitiesByName] objectForKey:@"EdBook"];
+        [request setEntity:entityDiscription];
+        
+        NSError *error;
+        NSArray *resultArray = [context executeFetchRequest:request error:&error];
+        if (!resultArray)
+        {
+            [NSException raise:@"Fetch failed..." format:@"Reason: %@", [error localizedDescription]];
+        }
+        _allEdBooksArray = [[NSMutableArray alloc] initWithArray:resultArray];
     }
 }
 

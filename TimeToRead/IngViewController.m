@@ -64,7 +64,7 @@
     {
         return [_dropDownArray count];
     }
-    else return [[[IngBookStore sharedStore] allBooksArray] count];
+    else return [[[IngBookStore sharedStore] allIngBooksArray] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +77,7 @@
     
     if (tableView == _contentsTableView)
     {
-        IngBook *book = [[[IngBookStore sharedStore] allBooksArray] objectAtIndex:indexPath.row];
+        IngBook *book = [[[IngBookStore sharedStore] allIngBooksArray] objectAtIndex:indexPath.row];
         
         cell.textLabel.text = book.title;
 //        NSString *authorPref = @"作者：";

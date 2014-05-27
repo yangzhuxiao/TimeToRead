@@ -13,12 +13,22 @@
     NSManagedObjectContext *context;
     NSManagedObjectModel *modal;
 }
-@property (nonatomic, copy) NSMutableArray *allBooksArray;
+@property (nonatomic, copy) NSMutableArray *allIngBooksArray;
+@property (nonatomic, copy) NSMutableArray *allEdBooksArray;
 
 
 + (IngBookStore *)sharedStore;
-- (NSString *)bookArchivePath;
-- (void)createNewBookWithTitle:(NSString *)title WithAuthor:(NSString *)author;
+- (id)initWithBookType:(NSInteger)bookType;
+
+- (NSString *)IngBookArchivePath;
+- (NSString *)EdBookArchivePath;
+
+- (void)createIngBookWithTitle:(NSString *)title WithAuthor:(NSString *)author;
+- (void)createEdBookWithTitle:(NSString *)title WithAuthor:(NSString *)author;
+
+
 - (BOOL)saveChanges;
-- (void)loadAllBooks;
+- (void)loadAllIngBooks;
+- (void)loadAllEdBooks;
+
 @end
