@@ -48,7 +48,7 @@
 
 - (void)addBookToReadingStore
 {
-    [[IngBookStore sharedStore] createNewBookWithTitle:_titleString WithAuthor:_authorString];
+    [[IngBookStore sharedStore] createNewBookWithTitle:_titleString WithAuthor:_authorString WithImage:_imageView.image];
     
     [[IngBookStore sharedStore] saveChanges];
 }

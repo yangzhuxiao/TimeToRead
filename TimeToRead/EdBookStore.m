@@ -60,11 +60,12 @@
     return self;
 }
 
-- (void)createNewBookWithTitle:(NSString *)title WithAuthor:(NSString *)author
+- (void)createNewBookWithTitle:(NSString *)title WithAuthor:(NSString *)author WithImage:(UIImage *)image
 {
     EdBook *newBook = [NSEntityDescription insertNewObjectForEntityForName:@"EdBook" inManagedObjectContext:context];
     newBook.title = title;
     newBook.author = author;
+    newBook.image = UIImagePNGRepresentation(image);
     [_allBooksArray addObject:newBook];
 }
 

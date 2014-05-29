@@ -18,7 +18,7 @@
 
 + (IngBookStore *)sharedStore;
 - (NSString *)bookArchivePath;
-- (void)createNewBookWithTitle:(NSString *)title WithAuthor:(NSString *)author;
+- (void)createNewBookWithTitle:(NSString *)title WithAuthor:(NSString *)author WithImage:(UIImage *)image;
 - (BOOL)saveChanges;
 - (void)loadAllBooks;
 @end

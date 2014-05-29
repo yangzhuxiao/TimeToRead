@@ -10,6 +10,7 @@
 #import "RESideMenu.h"
 #import "EdBook.h"
 #import "EdBookStore.h"
+#import "SearchTableViewCell.h"
 
 @implementation EdViewController
 
@@ -35,18 +36,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
     if (!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+        NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"SearchTableViewCell" owner:nil options:nil];
+        
+        for (id item in nibArray)
+        {
+            if ([item isKindOfClass:[SearchTableViewCell class]])
+            {
+                cell = (SearchTableViewCell *)item;
+            }
+        }
     }
     
     EdBook *book = [[[EdBookStore sharedStore] allBooksArray] objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = book.title;
+    cell.title.text = book.title;
+    NSString *authorPref = @"作者：";
+    NSString *firstAuthor = firstAuthor = book.author;
+    
+    cell.author.text = [authorPref stringByAppendingString:firstAuthor];
+    
+    cell.backgroundColor = [UIColor clearColor];
+    UIImage *image = [UIImage imageWithData:book.image];
+    
+    cell.imageView.image = image;
     
     [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-
     return cell;
 }
 

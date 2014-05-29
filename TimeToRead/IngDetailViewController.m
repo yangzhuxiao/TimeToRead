@@ -31,11 +31,12 @@
 {
     [_bookTitle setText:_titleString];
     _bookAuthor.text = _authorString;
+    
 }
 
 - (void)addToAlreadyRead
 {
-    [[EdBookStore sharedStore] createNewBookWithTitle:_bookTitle.text WithAuthor:_bookAuthor.text];
+    [[EdBookStore sharedStore] createNewBookWithTitle:_bookTitle.text WithAuthor:_bookAuthor.text WithImage:_image];
     [[EdBookStore sharedStore] saveChanges];
 }
 

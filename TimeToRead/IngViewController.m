@@ -12,6 +12,7 @@
 #import "IngBook.h"
 #import "IngBookStore.h"
 #import "IngDetailViewController.h"
+#import "SearchTableViewCell.h"
 
 #define IS_IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0000 ? YES : NO)
 
@@ -49,6 +50,12 @@
     
     _dropDownTableView.backgroundColor = [UIColor yellowColor];
     _dropDownTableView.hidden = YES;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [_contentsTableView reloadData];
 }
 
 - (void)addItem
@@ -69,37 +76,55 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-    }
-    
     if (tableView == _contentsTableView)
     {
+        SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+        if (!cell)
+        {
+            NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"SearchTableViewCell" owner:nil options:nil];
+            
+            for (id item in nibArray)
+            {
+                if ([item isKindOfClass:[SearchTableViewCell class]])
+                {
+                    cell = (SearchTableViewCell *)item;
+                }
+            }
+        }
+        
         IngBook *book = [[[IngBookStore sharedStore] allBooksArray] objectAtIndex:indexPath.row];
         
-        cell.textLabel.text = book.title;
-//        NSString *authorPref = @"作者：";
-//        NSString *firstAuthor = @"";
-//        if ([[_authorsArray objectAtIndex:indexPath.row] count] > 0)//some may miss the authors
-//        {
-//            firstAuthor = [[_authorsArray objectAtIndex:indexPath.row] objectAtIndex:0];
-//        }
-//        
-//        cell.author.text = [authorPref stringByAppendingString:firstAuthor];
+        cell.title.text = book.title;
+        NSString *authorPref = @"作者：";
+        NSString *firstAuthor = firstAuthor = book.author;
+        
+        cell.author.text = [authorPref stringByAppendingString:firstAuthor];
+        
+        cell.backgroundColor = [UIColor clearColor];
+        UIImage *image = [UIImage imageWithData:book.image];
+        
+        cell.imageView.image = image;
+        
+        [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+        return cell;
+
     }
     else
     {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        if (!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+        }
+        
         UIFont *dropDownFont = [UIFont systemFontOfSize:10.f];
         cell.textLabel.font = dropDownFont;
         cell.textLabel.text = _dropDownArray[indexPath.row];
         cell.backgroundColor = [UIColor clearColor];
         
         [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+        return cell;
     }
-    
-    return cell;
 }
 #pragma mark -- UITableViewDelegate
 
@@ -128,12 +153,16 @@
     }
     else
     {
+        
+        
         _dropDownTableView.hidden = YES;
         _detailViewController = [[IngDetailViewController alloc] init];
         
         IngBook *book = [[[IngBookStore sharedStore] allBooksArray] objectAtIndex:indexPath.row];
         _detailViewController.titleString = book.title;
-        
+        _detailViewController.authorString = book.author;
+        UIImage *image = [UIImage imageWithData:book.image];
+        _detailViewController.image = image;
         [self.navigationController pushViewController:_detailViewController animated:YES];
     }
 }

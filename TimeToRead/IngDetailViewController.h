@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString * titleString;
 @property (nonatomic, copy) NSString * authorString;
+@property (nonatomic, strong) UIImage *image;
 
 @property (strong, nonatomic) IBOutlet UILabel *Progression;
 @property (strong, nonatomic) IBOutlet UILabel *bookTitle;
