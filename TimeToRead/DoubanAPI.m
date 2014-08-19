@@ -32,6 +32,7 @@
         NSLog(@"bookTitle: %@", [mappingResult.array[0] valueForKey:@"bookTitle"]);
         NSLog(@"bookImage: %@", [mappingResult.array[0] valueForKey:@"bookImage"]);
  */
+        NSDictionary *dic = mappingResult.array[0];
         resultsBlock(mappingResult.array[0]);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Shit, Searching failed...");

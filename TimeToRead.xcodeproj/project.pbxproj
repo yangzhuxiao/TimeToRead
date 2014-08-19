@@ -10,7 +10,6 @@
 		284F75ADA3414EF3A5AFB489 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D071B86B3064C4291463280 /* libPods.a */; };
 		970996D01928506D00761C93 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970996CF1928506D00761C93 /* SearchTableViewCell.xib */; };
 		970996D319286C9300761C93 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 970996D219286C9300761C93 /* SearchTableViewCell.m */; };
-		97156176190D08A60088042F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97156175190D08A60088042F /* Foundation.framework */; };
 		97156178190D08A60088042F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97156177190D08A60088042F /* CoreGraphics.framework */; };
 		9715617A190D08A60088042F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97156179190D08A60088042F /* UIKit.framework */; };
 		97156180190D08A60088042F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9715617E190D08A60088042F /* InfoPlist.strings */; };
@@ -39,12 +38,13 @@
 		979EAD2F1922601000F438E8 /* DoubanAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 979EAD2E1922601000F438E8 /* DoubanAPI.m */; };
 		97A1686A1929EA9000A79A05 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A168681929EA9000A79A05 /* BookDetailViewController.m */; };
 		97A1686B1929EA9000A79A05 /* BookDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97A168691929EA9000A79A05 /* BookDetailViewController.xib */; };
+		97B03C7819823B6C006ECCD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97156175190D08A60088042F /* Foundation.framework */; };
+		97BF334B19825697004545C0 /* IngBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BF334A19825697004545C0 /* IngBook.m */; };
 		97D03D31190E2F7B00EE667B /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D03D30190E2F7B00EE667B /* LeftViewController.m */; };
 		97D0EBF6191F462B00A7BEE7 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D0EBF5191F462B00A7BEE7 /* ScanViewController.m */; };
 		97D0EBF8191F464B00A7BEE7 /* ScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D0EBF7191F464B00A7BEE7 /* ScanViewController.xib */; };
 		97D39B3F1933809E0013BCBA /* IngDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D39B3E1933809E0013BCBA /* IngDetailViewController.m */; };
 		97D39B41193387D50013BCBA /* IngDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D39B40193387D50013BCBA /* IngDetailViewController.xib */; };
-		97E7DAAA193623A4000E22F6 /* IngBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E7DAA9193623A4000E22F6 /* IngBook.m */; };
 		97E7DAAD19364ADC000E22F6 /* EdBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E7DAAC19364ADC000E22F6 /* EdBook.m */; };
 		97F425571934993400DB7B22 /* IngBookStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F425561934993400DB7B22 /* IngBookStore.m */; };
 		97F4255A1934C83600DB7B22 /* EdBookStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F425591934C83600DB7B22 /* EdBookStore.m */; };
@@ -53,6 +53,20 @@
 
 /* Begin PBXContainerItemProxy section */
 		97156192190D08A60088042F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9715616A190D08A60088042F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97156171190D08A60088042F;
+			remoteInfo = TimeToRead;
+		};
+		9752DE68198292BE00407F5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9715616A190D08A60088042F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97156171190D08A60088042F;
+			remoteInfo = TimeToRead;
+		};
+		9752DE6A198292BE00407F5B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9715616A190D08A60088042F /* Project object */;
 			proxyType = 1;
@@ -112,6 +126,8 @@
 		97A168671929EA9000A79A05 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
 		97A168681929EA9000A79A05 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		97A168691929EA9000A79A05 /* BookDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailViewController.xib; sourceTree = "<group>"; };
+		97BF334919825697004545C0 /* IngBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngBook.h; sourceTree = "<group>"; };
+		97BF334A19825697004545C0 /* IngBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngBook.m; sourceTree = "<group>"; };
 		97D03D2F190E2F7B00EE667B /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftViewController.h; path = ../LeftViewController.h; sourceTree = "<group>"; };
 		97D03D30190E2F7B00EE667B /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftViewController.m; path = ../LeftViewController.m; sourceTree = "<group>"; };
 		97D0EBF4191F462B00A7BEE7 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
@@ -120,8 +136,6 @@
 		97D39B3D1933809E0013BCBA /* IngDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngDetailViewController.h; sourceTree = "<group>"; };
 		97D39B3E1933809E0013BCBA /* IngDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngDetailViewController.m; sourceTree = "<group>"; };
 		97D39B40193387D50013BCBA /* IngDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IngDetailViewController.xib; sourceTree = "<group>"; };
-		97E7DAA8193623A4000E22F6 /* IngBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngBook.h; sourceTree = "<group>"; };
-		97E7DAA9193623A4000E22F6 /* IngBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngBook.m; sourceTree = "<group>"; };
 		97E7DAAB19364ADC000E22F6 /* EdBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdBook.h; sourceTree = "<group>"; };
 		97E7DAAC19364ADC000E22F6 /* EdBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdBook.m; sourceTree = "<group>"; };
 		97F425551934993400DB7B22 /* IngBookStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngBookStore.h; sourceTree = "<group>"; };
@@ -137,9 +151,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97B03C7819823B6C006ECCD7 /* Foundation.framework in Frameworks */,
 				97156178190D08A60088042F /* CoreGraphics.framework in Frameworks */,
 				9715617A190D08A60088042F /* UIKit.framework in Frameworks */,
-				97156176190D08A60088042F /* Foundation.framework in Frameworks */,
 				284F75ADA3414EF3A5AFB489 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,8 +221,8 @@
 				97D03D32190E2F8500EE667B /* LeftViewController */,
 				973D6CB8190FA15500F746B8 /* LogOut */,
 				975DD923192B9DBE0054B5CD /* CurrentlyReadingBooks.xcdatamodeld */,
-				97E7DAA8193623A4000E22F6 /* IngBook.h */,
-				97E7DAA9193623A4000E22F6 /* IngBook.m */,
+				97BF334919825697004545C0 /* IngBook.h */,
+				97BF334A19825697004545C0 /* IngBook.m */,
 				97E7DAAB19364ADC000E22F6 /* EdBook.h */,
 				97E7DAAC19364ADC000E22F6 /* EdBook.m */,
 				97F425551934993400DB7B22 /* IngBookStore.h */,
@@ -388,6 +402,8 @@
 			);
 			dependencies = (
 				97156193190D08A60088042F /* PBXTargetDependency */,
+				9752DE69198292BE00407F5B /* PBXTargetDependency */,
+				9752DE6B198292BE00407F5B /* PBXTargetDependency */,
 			);
 			name = TimeToReadTests;
 			productName = TimeToReadTests;
@@ -512,7 +528,7 @@
 				973D6CB7190FA14900F746B8 /* LogOut.m in Sources */,
 				973D6C9D190F778F00F746B8 /* EdViewController.m in Sources */,
 				973D6CA3190F77D900F746B8 /* SettingsViewController.m in Sources */,
-				97E7DAAA193623A4000E22F6 /* IngBook.m in Sources */,
+				97BF334B19825697004545C0 /* IngBook.m in Sources */,
 				973D6C9A190F778100F746B8 /* IngViewController.m in Sources */,
 				973D6C97190F54EF00F746B8 /* UIViewController+RESideMenu.m in Sources */,
 			);
@@ -533,6 +549,16 @@
 			isa = PBXTargetDependency;
 			target = 97156171190D08A60088042F /* TimeToRead */;
 			targetProxy = 97156192190D08A60088042F /* PBXContainerItemProxy */;
+		};
+		9752DE69198292BE00407F5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97156171190D08A60088042F /* TimeToRead */;
+			targetProxy = 9752DE68198292BE00407F5B /* PBXContainerItemProxy */;
+		};
+		9752DE6B198292BE00407F5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97156171190D08A60088042F /* TimeToRead */;
+			targetProxy = 9752DE6A198292BE00407F5B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

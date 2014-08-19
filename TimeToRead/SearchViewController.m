@@ -80,7 +80,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    NSString *searchAPI = @"https://api.douban.com/v2/book/search?q=我们";
+    NSString *searchAPI = @"https://api.douban.com/v2/book/search?q=we";
 //    searchString = [searchAPI stringByAppendingString:searchString];
     
     [self sendRequest:searchAPI];

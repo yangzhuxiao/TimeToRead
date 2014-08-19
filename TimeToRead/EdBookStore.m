@@ -28,6 +28,7 @@
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    NSLog(@"%@", [documentDirectory stringByAppendingString:@"EdBookStore.data"]);
     return [documentDirectory stringByAppendingString:@"EdBookStore.data"];
 }
 

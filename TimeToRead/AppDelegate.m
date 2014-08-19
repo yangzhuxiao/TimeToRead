@@ -28,6 +28,7 @@
     
     sideMenuController.view.backgroundColor = [UIColor clearColor];
     [self.window setRootViewController:sideMenuController];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
